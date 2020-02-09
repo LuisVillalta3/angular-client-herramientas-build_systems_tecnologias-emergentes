@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from 'src/app/models/User';
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 
 import { UserService } from "src/app/services/user/user.service";
 import { NgForm } from '@angular/forms';
@@ -25,7 +25,11 @@ export class LoginComponent implements OnInit {
 
   public isError = false;
 
-  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: Router) {
+    if (localStorage.getItem('users') != null) {
+      this.route.navigate(['/products']);
+    }
+  }
 
   ngOnInit() {
   }
@@ -38,7 +42,8 @@ export class LoginComponent implements OnInit {
           if (foundUser.password === this.user.password) {
             this.user = foundUser;
             this.isError = false;
-            return;
+            localStorage.setItem('users', Object(this.user));
+            this.route.navigate(['/products']);
           }
           this.errorMsg = 'La contraseña no es valida';
           this.onIsError();

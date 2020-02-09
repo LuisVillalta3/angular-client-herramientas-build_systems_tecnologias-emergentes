@@ -1,0 +1,33 @@
+<div class="products">
+  <div class="container">
+    <app-navigation></app-navigation>
+    <div class="catalog">
+      <div class="row">
+        <div class="columns">
+          <h1>Catálogo de productos</h1>
+        </div>
+        <div class="columns shrink">
+          <form>
+            <label>¿Qué estás buscando?</label>
+            <input type="text" placeholder="Buscar producto">
+          </form>
+        </div>
+      </div>
+      <div class="row align-justify">
+        <img src="../../../assets/images/aguacate.jpg" alt="">
+        <div class="columns small-24 medium-7 large-5" *ngFor="let product of product">
+          <img [src]="product.image">
+          <h2>{{ product.name }}</h2>
+          <div class="block">
+            <b>Precio:</b> $
+            {{ product.price }}
+          </div>
+          <div class="block">
+            <b>Unidades disponibles:</b>
+            {{ product.stock }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

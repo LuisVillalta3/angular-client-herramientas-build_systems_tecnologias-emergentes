@@ -1,0 +1,30 @@
+.catalog {
+  margin: 1em 0;
+  background: #fff;
+  border-radius: 10px;
+  color: #464646;
+  padding: 1em;
+  h1 {
+    font-weight: 300;
+    margin: 0;
+  }
+  form {
+    max-width: 300px;
+  }
+  label {
+    font-weight: 700;
+  }
+  [type='text'] {
+    width: 100%;
+    margin: .3em 0;
+    text-indent: .5em;
+    padding: .3em 0;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid transparentize(#000000, .8);
+    transition: .3s;
+    &:focus {
+      border: 1px solid transparentize(#000000, .2);
+    }
+  }
+}
