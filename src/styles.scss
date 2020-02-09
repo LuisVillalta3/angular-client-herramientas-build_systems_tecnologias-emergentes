@@ -1,0 +1,31 @@
+$mob: "screen and (max-width: 720px)";
+$tab: "screen and (max-width: 1023px)";
+$med: "screen and (max-width: 1024px)";
+$lar: "screen and (max-width: 1400px)";
+
+@import './assets/stylesheets/foundation';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.row {
+  max-width: none;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 1em;
+}

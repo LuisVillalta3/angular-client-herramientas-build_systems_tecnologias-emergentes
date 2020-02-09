@@ -21,6 +21,10 @@ export class UserService {
     return this.http.get(`${this.API_URI}/${id}`);
   }
 
+  login(id: string|number): Observable<User> {
+    return this.http.get(`${this.API_URI}/login/${id}`);
+  }
+
   saveUser(user: User): Observable<User> {
     return this.http.post(`${this.API_URI}`, user);
   }
