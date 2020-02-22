@@ -30,9 +30,9 @@
               <a [routerLink]="['/products', product.id]" class="btn blue">Ver Más</a>
             </div>
             <div class="columns shrink">
-              <form (ngSubmit)="onSubmit()" #form="ngForm">
+              <form (ngSubmit)="addToCart(product)" #form="ngForm">
                 <button class="btn yellow" type="submit">Añadir</button>
-                <input type="number" value="0" min="0" step="1">
+                <input type="number" value="0" min="0" name="stock" [(ngModel)]="product.qty" step="1">
               </form>
             </div>
           </div>

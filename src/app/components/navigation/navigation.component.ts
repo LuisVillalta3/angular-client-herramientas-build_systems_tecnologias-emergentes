@@ -11,6 +11,10 @@ export class NavigationComponent implements OnInit {
   countProduct: number = 0;
 
   ngOnInit(): void {
+    this.setMenuItems()
+  }
+
+  setMenuItems():void {
     if (localStorage.getItem('countProducts') != null) {
       this.countProduct = Number(localStorage.getItem('countProducts'))
     }
@@ -22,5 +26,4 @@ export class NavigationComponent implements OnInit {
     localStorage.removeItem('users');
     this.route.navigate(['/login']);
   }
-
 }

@@ -6,4 +6,5 @@ export interface Product {
   image?: string;
   description?: string;
   created_at?: Date;
+  qty?: number;
 }
