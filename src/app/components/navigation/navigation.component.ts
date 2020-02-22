@@ -6,7 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
+
+  countProduct: number = 0;
+
+  ngOnInit(): void {
+    if (localStorage.getItem('countProducts') != null) {
+      this.countProduct = Number(localStorage.getItem('countProducts'))
+    }
+  }
 
   constructor(private route: Router) { }
 

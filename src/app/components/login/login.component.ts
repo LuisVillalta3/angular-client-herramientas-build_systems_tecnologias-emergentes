@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { User } from 'src/app/models/User';
 import { Router } from "@angular/router";
@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   user: User = {
     id: 0,
@@ -29,9 +29,6 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('users') != null) {
       this.route.navigate(['/products']);
     }
-  }
-
-  ngOnInit() {
   }
 
   findUser(form: NgForm) {

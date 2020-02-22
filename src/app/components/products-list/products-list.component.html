@@ -27,7 +27,7 @@
           </div>
           <div class="row align-justify">
             <div class="columns shrink">
-              <a href="" class="btn blue">Ver Más</a>
+              <a [routerLink]="['/products', product.id]" class="btn blue">Ver Más</a>
             </div>
             <div class="columns shrink">
               <form (ngSubmit)="onSubmit()" #form="ngForm">

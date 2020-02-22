@@ -1,0 +1,25 @@
+<div class="products">
+  <div class="container">
+    <app-navigation></app-navigation>
+    <div class="catalog">
+      <h1>{{ product.name }}</h1>
+      <div class="row align-justify">
+        <div class="columns small-24 medium-8">
+          <img [src]="product.image">
+          <br><br>
+          <a [routerLink]="['/products']" class="btn">Atras</a>
+        </div>
+        <div class="columns small-24 medium-11">
+          <h2>Precio</h2> {{ product.price }}
+          <br>
+          <h3>Unidades disponibles</h3> {{ product.stock }}
+          <br>
+          <h3>Descripción</h3>
+          <p>
+            {{ product.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

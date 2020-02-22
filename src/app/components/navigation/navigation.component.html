@@ -5,7 +5,10 @@
     </div>
     <div class="columns shrink aling-self-middle">
       <a><img src="../../../assets/images/icons/grid.svg"></a>
-      <a href=""><img src="../../../assets/images/icons/supermarket.svg"></a>
+      <a href="" class="supermarket">
+        <img src="../../../assets/images/icons/supermarket.svg">
+        <span *ngIf="countProduct > 0">{{ countProduct }}</span>
+      </a>
       <a><img src="../../../assets/images/icons/inbox.svg"></a>
       <a (click)="logout()"><img src="../../../assets/images/icons/logout.svg"></a>
     </div>
