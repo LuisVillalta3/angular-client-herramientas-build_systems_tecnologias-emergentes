@@ -10,11 +10,16 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   API_URI = 'http://127.0.0.1:3000/api/products';
+  SEARCH_URI = 'http://127.0.0.1:3000/api/search';
 
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product> {
     return this.http.get(`${this.API_URI}`);
+  }
+
+  searchProducts(name: string): Observable<Product> {
+    return this.http.get(`${this.SEARCH_URI}/${name}`);
   }
 
   getProduct(id: string|number): Observable<Product> {

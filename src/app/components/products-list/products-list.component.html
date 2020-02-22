@@ -7,13 +7,13 @@
           <h1>Catálogo de productos</h1>
         </div>
         <div class="columns shrink">
-          <form>
+          <form #formSearch="ngForm">
             <label>¿Qué estás buscando?</label>
-            <input type="text" placeholder="Buscar producto">
+            <input type="text" name="search" [(ngModel)]="search" (keyup)="findProducts()" placeholder="Buscar producto">
           </form>
         </div>
       </div>
-      <div class="row align-justify products-2">
+      <div class="row align-spaced products-2">
         <div class="columns small-24 medium-7 large-5 card" *ngFor="let product of products">
           <img [src]="product.image">
           <h2>{{ product.name }}</h2>
@@ -32,7 +32,7 @@
             <div class="columns shrink">
               <form (ngSubmit)="onSubmit()" #form="ngForm">
                 <button class="btn yellow" type="submit">Añadir</button>
-                <input type="number">
+                <input type="number" value="0" min="0" step="1">
               </form>
             </div>
           </div>
