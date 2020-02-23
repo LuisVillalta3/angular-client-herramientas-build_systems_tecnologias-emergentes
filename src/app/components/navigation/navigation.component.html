@@ -1,11 +1,11 @@
 <nav>
   <div class="row">
     <div class="columns">
-      <h2>La Bodega</h2>
+      <a [routerLink]="['/products']" style="margin: 0;"><h2>La Bodega</h2></a>
     </div>
     <div class="columns shrink aling-self-middle">
       <a><img src="../../../assets/images/icons/grid.svg"></a>
-      <a href="" class="supermarket">
+      <a [routerLink]="['/carrito']" class="supermarket">
         <img src="../../../assets/images/icons/supermarket.svg">
         <span *ngIf="countProduct > 0">{{ countProduct }}</span>
       </a>

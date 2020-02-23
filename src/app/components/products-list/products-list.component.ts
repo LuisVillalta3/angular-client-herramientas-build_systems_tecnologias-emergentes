@@ -20,6 +20,7 @@ export class ProductsListComponent implements OnInit {
     if (localStorage.getItem('users') === null) {
       this.route.navigate(['/login']);
     }
+    this.getProducts()
   }
 
   ngOnInit() {
@@ -28,9 +29,7 @@ export class ProductsListComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getProducts().subscribe(
-      res => {
-        this.products = res
-      },
+      res => { this.products = res },
       err => console.log(err)
     )
   }
@@ -66,30 +65,14 @@ export class ProductsListComponent implements OnInit {
         lastCart.push(el)
       });
       if (counting > 0) {
-        this.updateStock(product,actualCart, lastCart)
+        localStorage.setItem('cart', JSON.stringify(lastCart))
       } else {
         actualCart.push(product)
         localStorage.setItem('countProducts', String(count + 1))
-        this.updateStock(product,actualCart)
+        localStorage.setItem('cart', JSON.stringify(actualCart))
       }
+      this.route.navigate(['/']);
     }
-  }
-
-  updateStock(product: Product, actualCart: any, lastCart?: any): void {
-    if (lastCart != null && lastCart != undefined) {
-      localStorage.setItem('cart', JSON.stringify(lastCart))
-    } else {
-      localStorage.setItem('cart', JSON.stringify(actualCart))
-    }
-    product.stock -= product.qty;
-    delete product.created_at;
-    delete product.qty;
-    this.productService.updateProduct(product.id, product).subscribe(
-      res => {
-        this.route.navigate(['/']);
-      },
-      err => { console.log(err); }
-    )
   }
 
 }
