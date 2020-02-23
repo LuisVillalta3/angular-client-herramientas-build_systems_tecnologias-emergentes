@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  API_URI = 'http://127.0.0.1:3000/api/products';
-  SEARCH_URI = 'http://127.0.0.1:3000/api/search';
+  API_URI = 'http://127.0.0.1:5000/api/products';
+  SEARCH_URI = 'http://127.0.0.1:5000/api/search';
 
   constructor(private http: HttpClient) { }
 
